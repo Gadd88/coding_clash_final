@@ -9,7 +9,7 @@ const mapeo = {
     9: 'wxyz',
 }
 
-const digitosPrueba = '23'
+const digitosPrueba = '234'
 
 const combinacionesPosibles = (digitos = digitosPrueba) => {
     const letras = []
@@ -22,8 +22,10 @@ const combinacionesPosibles = (digitos = digitosPrueba) => {
         //i = letras[i]
         for(let j = 0; j < letras[i].length; j++){
             //j = letras[i][j]
-            for(let k = 0; k < letras[i+1]?.length; k++){
-                combinaciones.push(letras[i][j]+letras[i+1][k])
+            for(let k = i + 1; k < letras.length; k++){
+              for(let l = 0; l < letras[i].length; l++){
+                combinaciones.push(letras[i][j].concat(letras[k][l]))
+              }
             }
         }
     }
